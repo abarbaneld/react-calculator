@@ -55,11 +55,11 @@ class Calculator extends React.Component {
             oper;
         while (result.length) {
             let num = result.shift();
-            if(isNaN(parseInt(num))){
+            if (isNaN(parseInt(num))) {
                 oper = num;
             } else {
-                if(oper){
-                    switch(oper){
+                if (oper) {
+                    switch (oper) {
                         case "+":
                             total = parseInt(total) + parseInt(num);
                             break;
@@ -96,93 +96,22 @@ class Calculator extends React.Component {
                         value={this.state.display}
                         disabled={true} />
                     <div className="total">
-                        { this.state.display.length >= 3 ? <span>&#61; {this.state.total}</span> : null }
+                        {this.state.display.length >= 3 ? <span>&#61; {this.state.total}</span> : null}
                     </div>
                 </div>
                 <div className="grid-container">
-                    <div className="grid-item">
-                        <button
-                            name="1"
-                            className="expand"
-                            onClick={this.handleInputChange}>1</button>
-                    </div>
-                    <div className="grid-item">
-                        <button
-                            name="2"
-                            className="expand"
-                            onClick={this.handleInputChange}>2</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="3"
-                            className="expand"
-                            onClick={this.handleInputChange}>3</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="+"
-                            className="expand"
-                            onClick={this.handleInputChange}>+</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="4"
-                            className="expand"
-                            onClick={this.handleInputChange}>4</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="5"
-                            className="expand"
-                            onClick={this.handleInputChange}>5</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="6"
-                            className="expand"
-                            onClick={this.handleInputChange}>6</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="-"
-                            className="expand"
-                            onClick={this.handleInputChange}>-</button>
-                    </div>
-                    <div className="grid-item">
-                        <button
-                            name="7"
-                            className="expand"
-                            onClick={this.handleInputChange}>7</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="8"
-                            className="expand"
-                            onClick={this.handleInputChange}>8</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="9"
-                            className="expand"
-                            onClick={this.handleInputChange}>9</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="/"
-                            className="expand"
-                            onClick={this.handleInputChange}>/</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="0"
-                            className="expand"
-                            onClick={this.handleInputChange}>0</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="*"
-                            className="expand"
-                            onClick={this.handleInputChange}>*</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="C"
-                            className="expand"
-                            onClick={this.handleInputChange}>C</button>
-                    </div>
-                    <div className="grid-item">
-                        <button name="CE"
-                            className="expand"
-                            onClick={this.handleInputChange}>CE</button>
-                    </div>
+                    {["1", "2", "3", "+", "4", "5", "6", "-", "7", "8", "9", "/", "0", "*", "C", "CE"].map((button, index) => {
+                        return <div 
+                                    key={index} 
+                                    className="grid-item">
+                                    <button 
+                                        name={button} 
+                                        className="expand" 
+                                        onClick={this.handleInputChange}>
+                                        {button}
+                                    </button>
+                        </div>
+                    })}
                 </div>
             </div>
         );
