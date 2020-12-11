@@ -1,4 +1,4 @@
-# Simple React Calculator
+# Simple React Calculator (src)
 A simple calculator created with React and Nuxt.js
 
 ## Prerequisites
@@ -11,7 +11,7 @@ A simple calculator created with React and Nuxt.js
 `npm run build`
 
 ### Build Docker Container
-`docker build -t my_app .`
+`docker build -t src .`
 
 ## How to run
 
@@ -19,4 +19,4 @@ A simple calculator created with React and Nuxt.js
 `npm start`  
 
 ### Run the Docker Container
-`docker run -it -p 5000:5000 my_app`
+`docker run -it -p 5000:5000 src`
